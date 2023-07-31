@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const URL = require('../models/Url');
+const Link = require('../models/Link');
 
 // GET all URLs
 router.get('/', async (req, res) => {
   try {
-    const urls = await URL.find();
-    res.json(urls);
+    const urls = Link.find()
+    .then((links) => res.json(links))
+    .catch((err) => res.status(500).json({ error: 'Error retrieving links from database' }));
+
+    console.log(urls)
   } catch (error) {
     res.status(500).json({ message: 'Error fetching URLs' });
   }
@@ -17,7 +20,7 @@ router.post('/', async (req, res) => {
   const { name, url } = req.body;
 
   try {
-    const newUrl = new URL({ name, url }); // Include both name and url
+    const newUrl = new Link({ name, url });
     await newUrl.save();
     res.status(201).json(newUrl);
   } catch (error) {

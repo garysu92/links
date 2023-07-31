@@ -6,7 +6,6 @@ const App = () => {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    // Fetch the URLs from the backend API on component mount
     fetch('/api/urls')
       .then((response) => response.json())
       .then((data) => setUrls(data))
@@ -14,13 +13,12 @@ const App = () => {
   }, []);
 
   const addUrl = (newUrl) => {
-    // Send the new URL to the backend API for saving
     fetch('/api/urls', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newUrl), // Send both name and url in the request body
+      body: JSON.stringify(newUrl),
     })
       .then((response) => response.json())
       .then((data) => {
