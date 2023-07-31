@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import UrlForm from './components/UrlForm';
 import UrlList from './components/UrlList';
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    fetch('/api/urls')
+    fetch(`${apiUrl}/urls`)
       .then((response) => response.json())
       .then((data) => setUrls(data))
       .catch((error) => console.error('Error fetching URLs:', error));
   }, []);
 
   const addUrl = (newUrl) => {
-    fetch('/api/urls', {
+    fetch(`${apiUrl}/urls`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
