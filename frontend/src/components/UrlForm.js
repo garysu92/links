@@ -21,7 +21,9 @@ const UrlForm = ({ addUrl }) => {
     event.preventDefault();
 
     // Check if the user is authenticated
+    console.log("h")
     console.log(process.env.PASSWORD)
+    console.log("done")
     if (password === process.env.PASSWORD) {
       setIsAuthenticated(true);
       addUrl(formData);
