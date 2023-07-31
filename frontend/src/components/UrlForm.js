@@ -22,7 +22,7 @@ const UrlForm = ({ addUrl }) => {
 
     // Check if the user is authenticated
     console.log("h")
-    console.log(process.env.PASSWORD)
+    console.log(process.env.REACT_APP_PASSWORD)
     console.log("done")
     if (password === process.env.PASSWORD) {
       setIsAuthenticated(true);
