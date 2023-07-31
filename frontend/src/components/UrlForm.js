@@ -20,13 +20,8 @@ const UrlForm = ({ addUrl }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Check if the user is authenticated
-    console.log("h")
-    console.log(process.env.REACT_APP_PASSWORD)
-    console.log(process.env.REACT_APP_REACT_APP_PASSWORD)
-    console.log(REACT_APP_PASSWORD)
-    console.log("done")
-    if (password === process.env.PASSWORD) {
+    // Check if the user is authenticated)
+    if (password === process.env.REACT_APP_PASSWORD) {
       setIsAuthenticated(true);
       addUrl(formData);
       setFormData({ name: '', url: '' });
