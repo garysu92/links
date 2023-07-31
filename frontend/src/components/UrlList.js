@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const UrlList = ({ urls }) => {
   return (
     <div>
-      <h2>URL List</h2>
       <ul>
         {urls.map((url) => (
           <li key={url._id}>
