@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Other Projects</h1>
+      <h1>Some of my other projects</h1>
       <UrlForm addUrl={addUrl} />
       <UrlList urls={urls} />
     </div>
